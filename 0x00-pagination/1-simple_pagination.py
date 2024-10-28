@@ -24,15 +24,22 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        assert type(page) is int
-        assert type(page_size) is int
-        assert page > 0
-        assert page_size > 0
-        self.dataset()
-        if page >= len(self.__dataset) or page_size >= len(self.__dataset):
-            return []
+        # Validate input
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+
+        # Retrieve the dataset
+        dataset = self.dataset()
+
+        # Calculate the indices for pagination
         start_idx, end_idx = index_range(page, page_size)
-        return self.__dataset[start_idx:end_idx]
+
+        # Check if the indices are out of range
+        if start_idx >= len(dataset):
+            return []
+
+        # Return the page of the dataset
+        return dataset[start_idx:end_idx]
 
 
 def index_range(page: int, page_size: int) -> Tuple:
