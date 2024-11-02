@@ -24,16 +24,12 @@ class LRUCache(BaseCaching):
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             # Remove the least recently used item (LRU)
-            print('put-before', self.cache_data)
             first_key = self.cache_data.popitem(last=False)[0]
-            print('put-after', self.cache_data)
             print("DISCARD: {}".format(first_key))
 
     def get(self, key):
         """ Get an item by key """
         if key is not None and key in self.cache_data:
-            print('get-before', self.cache_data)
             self.cache_data.move_to_end(key)
-            print('get-after', self.cache_data)
             return self.cache_data.get(key)
         return None
