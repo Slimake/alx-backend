@@ -8,7 +8,6 @@ class MRUCache(BaseCaching):
     def __init__(self):
         """ Initialize """
         super().__init__()
-        self.cache_data = {}
         self.stack = []
 
     def put(self, key, item):
