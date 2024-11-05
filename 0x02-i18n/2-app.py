@@ -3,6 +3,7 @@
 """
 from flask import Flask, request, render_template
 from flask_babel import Babel
+from typing import Any
 
 
 class Config:
@@ -24,7 +25,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> Any:
     """Get locale from the user's browser
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
