@@ -23,10 +23,3 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 babel.init_app(app)
-
-
-@app.route("/")
-def index():
-    """Homepage
-    """
-    return render_template('1-index.html')
