@@ -2,14 +2,14 @@
 """1-app Module
 """
 from flask import Flask, render_template
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
 class Config:
     """Config class for babel
     """
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = "es"
+    BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
