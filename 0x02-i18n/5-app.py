@@ -36,15 +36,15 @@ babel = Babel(app)
 def get_locale() -> Any:
     """Get locale from the user's browser
     """
-    if g.user and g.user['locale'] in Config.LANGUAGES:
+    if g.user and g.user['locale']:
         return g.user['locale']
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_user() -> object:
+def get_user():
     """Return a user dictionary or None if login_as in not provided
     """
-    login_id: Union[str, int, None] = request.args.get('login_as')
+    login_id = request.args.get('login_as')
     if login_id is not None:
         login_id = int(login_id)
     if login_id and login_id in users:
