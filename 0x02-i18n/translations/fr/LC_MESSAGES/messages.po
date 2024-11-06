@@ -19,10 +19,10 @@ msgstr ""
 "Generated-By: Babel 2.16.0\n"
 
 #: templates/1-index.html:6 templates/2-index.html:6 templates/3-index.html:6
-msgid "Welcome to Holberton"
+msgid "home_title"
 msgstr "Bienvenue chez Holberton"
 
 #: templates/1-index.html:9 templates/2-index.html:9 templates/3-index.html:9
-msgid "Hello world"
+msgid "home_header"
 msgstr "Bonjour monde!"
 
