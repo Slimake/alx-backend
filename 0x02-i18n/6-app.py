@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""5-app Module
+"""6-app Module
 """
 from flask import Flask, request, render_template, g
 from flask_babel import Babel
@@ -76,4 +76,4 @@ def before_request():
 def index():
     """Homepage
     """
-    return render_template('5-index.html', user=g.user)
+    return render_template('6-index.html', user=g.user)
