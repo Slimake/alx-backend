@@ -24,10 +24,9 @@ app.config.from_object(Config)
 def get_locale() -> Any:
     """Get locale from the user's browser
     """
-    query_string_dict = dict(request.args)
-    if 'locale' in query_string_dict and \
-       query_string_dict['locale'] in Config.LANGUAGES:
-        return query_string_dict['locale']
+    locale = request.args.get('locale')
+    if locale in Config.LANGUAGES:
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
