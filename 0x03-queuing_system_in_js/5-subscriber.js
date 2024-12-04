@@ -1,5 +1,6 @@
 import { createClient, print } from "redis";
 
+
 const subscriber = createClient();
 subscriber
   .on('error', err => console.log('Redis client not connected to the server: Error:', err.message))
