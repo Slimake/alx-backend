@@ -13,9 +13,9 @@ const job = queue.create('push_notification_code', jobData).save((err) => {
   }
 });
 
-job.on('job complete', (id) => {
+job.on('complete', (id) => {
   console.log('Notification job completed');
 })
-.on('job failed', (id, err) => {
+.on('failed', (id, err) => {
   console.log('Notification job failed');
 });
