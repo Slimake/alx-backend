@@ -57,13 +57,13 @@ for (let i = 0; i < jobs.length; i++) {
     }
   });
 
-  job.on('job complete', (id) => {
-    console.log(`Notification job ${id} completed`);
+  job.on('complete', (result) => {
+    console.log(`Notification job #${job.id} completed`);
   })
-  .on('job failed', (id, err) => {
-    console.log(`Notification job ${id} failed: ${err}`);
+  .on('failed', (errorMessage) => {
+    console.log(`Notification job #${job.id} failed: ${errorMessage}`);
   })
-  .on('job progress', (id, progress) => {
-    console.log(`Notification job ${id} ${progress}% complete`);
+  .on('progress', (progress, data) => {
+    console.log(`Notification job #${job.id} ${progress}% complete`);
   });
 }
